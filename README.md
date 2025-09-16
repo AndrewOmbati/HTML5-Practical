@@ -33,7 +33,4 @@ fitcore-gym/
 ✅ **Microcontent** - Time, mark, abbr, code, kbd, samp elements  
 ✅ **Data Tables** - Proper table structure with caption, thead, tbody, tfoot
 
-**Live site:** https://andrewombati.github.io/fitcore-gym/
-
-# Html5-Practical
-# HTML5-Practical
+**Live site:** https://andrewombati.github.io/HTML5-Practical/
