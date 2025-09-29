@@ -1,0 +1,457 @@
+
+:root {
+  /* Colors */
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #666666;
+  --brand: #e53e3e;           
+  --brand-contrast: #ffffff;
+  --accent: #fd7b2d;          
+  --success: #38a169;         
+  --warning: #d69e2e;         
+  --surface: #f8f9fa;         
+  --border: #dee2e6;          
+  
+  /* Typography */
+  --font-sans: -apple-system, Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --h1: 2.5rem;              
+  --h2: 2rem;                
+  --h3: 1.5rem;              
+  --h4: 1.25rem;             
+  --body: 1rem;              
+  
+  /* Spacing */
+  --space-1: 0.25rem;        
+  --space-2: 0.5rem;         
+  --space-3: 0.75rem;        
+  --space-4: 1rem;           
+  --space-5: 1.25rem;        
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #ffffff;
+    --surface: #2d2d2d;
+    --border: #444444;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--body);
+  line-height: 1.6;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+h1 { font-size: var(--h1); margin-bottom: var(--space-4); }
+h2 { font-size: var(--h2); margin-bottom: var(--space-4); }
+h3 { font-size: var(--h3); margin-bottom: var(--space-3); }
+h4 { font-size: var(--h4); margin-bottom: var(--space-3); }
+
+p { margin-bottom: var(--space-4); max-width: 65ch; }
+
+
+a[href="#main"] {
+  position: absolute;
+  top: -40px;
+  left: var(--space-2);
+  background: var(--brand);
+  color: var(--brand-contrast);
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+a[href="#main"]:focus {
+  top: var(--space-2);
+}
+
+header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-4);
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  color: var(--brand);
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: var(--fg);
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+nav a:hover,
+nav a:focus {
+  background: var(--surface);
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+nav a[aria-current="page"] {
+  background: var(--brand);
+  color: var(--brand-contrast);
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-5);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+section {
+  background: var(--surface);
+  padding: var(--space-5);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+article > header {
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: var(--brand-contrast);
+  padding: var(--space-5);
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+article > header h2 {
+  color: var(--brand-contrast);
+  margin-bottom: var(--space-3);
+}
+
+aside {
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: 8px;
+  border-left: 4px solid var(--brand);
+  margin: var(--space-4) 0;
+}
+
+aside h4 {
+  color: var(--brand);
+  margin-bottom: var(--space-3);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: var(--space-4) 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+}
+
+caption {
+  font-weight: bold;
+  padding: var(--space-3);
+  background: var(--surface);
+  color: var(--brand);
+}
+
+th, td {
+  padding: var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--surface);
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--surface);
+}
+
+tbody tr:hover {
+  background: #ffe6e6;
+}
+
+
+img, video, audio {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+figure {
+  margin: var(--space-4) 0;
+  text-align: center;
+  background: var(--surface);
+  padding: var(--space-4);
+  border-radius: 8px;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-top: var(--space-2);
+  font-style: italic;
+}
+
+details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin: var(--space-3) 0;
+}
+
+summary {
+  padding: var(--space-3);
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--brand);
+  background: var(--surface);
+}
+
+summary:hover {
+  background: var(--brand);
+  color: var(--brand-contrast);
+}
+
+details p {
+  padding: var(--space-3);
+}
+
+dialog[open] {
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: var(--brand-contrast);
+  border: none;
+  border-radius: 8px;
+  padding: var(--space-4);
+  margin: var(--space-4) auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  margin: var(--space-2) 0;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-radius: 4px;
+}
+
+
+meter {
+  width: 100%;
+  height: 20px;
+  margin: var(--space-2) 0;
+}
+
+
+a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+code {
+  background: #ffe6e6;
+  color: var(--brand);
+}
+
+kbd {
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: bold;
+}
+
+samp {
+  background: #e6f7e6;
+  color: var(--success);
+}
+
+mark {
+  background: var(--warning);
+  padding: var(--space-1);
+  border-radius: 3px;
+}
+
+abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+
+blockquote {
+  border-left: 4px solid var(--brand);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  background: var(--surface);
+  border-radius: 4px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+cite {
+  font-weight: bold;
+  color: var(--brand);
+  font-style: normal;
+}
+
+time {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.mt-2 { margin-top: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.text-center { text-align: center; }
+.text-brand { color: var(--brand); }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9em;
+  margin-top: var(--space-5);
+}
+
+footer a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+
+section, .card {
+  transition: all 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+dialog[open] {
+  animation: slideIn 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  main {
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-5);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin-bottom: 0;
+  }
+  
+  nav ul {
+    justify-content: flex-end;
+  }
+  
+  aside {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 1fr 350px;
+    padding: var(--space-5) var(--space-4);
+  }
+  
+  section {
+    padding: var(--space-5);
+  }
+}
+
+:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
